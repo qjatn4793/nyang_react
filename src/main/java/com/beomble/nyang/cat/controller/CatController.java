@@ -25,6 +25,7 @@ public class CatController {
 
         for (int i=0; i < catCounts; i++) {
             catVo.setCatSeq(i);
+            catLists.add(i, catService.catLists(catVo));
         }
 
         return catLists;

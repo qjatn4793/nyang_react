@@ -101,7 +101,6 @@ export default function Contents() {
                 alert("고양이를 생성해 주세요! 로그아웃 합니다.");
                 localStorage.clear();
                 window.location.replace("/");
-                console.log(error);
             });
     }, []);
 
