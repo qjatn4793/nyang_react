@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.beomble.nyang.cat.mapper.CatMapper">
+
+    <insert id="createCat" parameterType="com.beomble.nyang.cat.vo.CatVo">
+        INSERT INTO nyang_cat (cat_img, cat_name, member_id)
+        VALUES (#{catImg}, #{catName}, #{memberId})
+    </insert>
+
+    <select id="catLists" parameterType="com.beomble.nyang.cat.vo.CatVo" resultType="com.beomble.nyang.cat.vo.CatVo">
+        SELECT * FROM nyang_cat
+        WHERE member_id = #{memberId}
+        LIMIT #{catSeq} ,1
+    </select>
+
+    <select id="catCounts" parameterType="String" resultType="int">
+        SELECT COUNT(*) FROM nyang_cat
+        WHERE member_id = #{memberId}
+    </select>
+    
+    <delete id="deleteCat">
+        DELETE FROM nyang_cat
+        WHERE  cat_seq = #{catSeq}
+        AND    member_id = #{memberId}
+    </delete>
+
+</mapper>

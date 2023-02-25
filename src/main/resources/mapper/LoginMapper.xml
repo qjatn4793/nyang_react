@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.beomble.nyang.login.mapper.LoginMapper">
+
+    <select id="loginCheck" parameterType="com.beomble.nyang.login.vo.LoginVo" resultType="com.beomble.nyang.login.vo.LoginVo">
+        SELECT * FROM nyang_member
+        WHERE member_id = #{memberId}
+        AND member_pw = #{memberPw}
+    </select>
+
+    <select id="loginCount" parameterType="com.beomble.nyang.login.vo.LoginVo" resultType="Integer">
+        SELECT COUNT(*) FROM nyang_member
+        WHERE member_id = #{memberId}
+        AND member_pw = #{memberPw}
+    </select>
+</mapper>

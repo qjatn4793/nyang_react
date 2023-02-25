@@ -1,0 +1,40 @@
+import React from 'react';
+import {useLocation} from "react-router-dom";
+import Component from './Component';
+import LComponent from './LComponent';
+import RComponent from './RComponent';
+import TComponent from './TComponent';
+import BComponent from './BComponent';
+
+import { motion } from "framer-motion";
+
+export default function Contents() {
+
+    // const location = useLocation();
+    // const id = location.state.id;
+    // const img = location.state.img;
+    //const img = sessionStorage.getItem('currentCatImg');
+    let currentCatName = localStorage.getItem('currentCatName');
+
+    const contentStyle = {
+        display: "block",
+        marginLeft: "auto",
+        marginRight: "auto",
+    };
+
+    const componentStyle = {
+        position: "absolute",
+        marginLeft: "34%"
+    };
+
+    return (
+        <motion.div style={contentStyle} initial={{opacity: 0}} animate={{opacity: 1}} exit={{opacity: 0}} transition={{ duration: 1 }}>
+            {/*<TComponent/>
+            <LComponent/>
+            <p style={componentStyle}>{currentCatName}</p>
+            <Component/>
+            <RComponent/>
+            <BComponent/>*/}
+        </motion.div>
+    );
+}
